@@ -1,0 +1,23 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="width-100">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="First Name"  formControlName="name">
+    </mat-form-field>
+    <mat-form-field class="width-100">
+        <mat-label>User Name</mat-label>
+        <input matInput placeholder="User Name"  formControlName="username">
+    </mat-form-field>
+    <mat-form-field class="width-100">
+        <mat-label>Website</mat-label>
+        <input matInput placeholder="Website"  formControlName="website">
+    </mat-form-field>
+    <mat-form-field class="width-100">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" type="email" formControlName="email">
+        <mat-error *ngIf="!form.controls['email'].valid">
+            Please enter a valid email address
+        </mat-error>
+    </mat-form-field>
+
+    <button mat-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+</form>

@@ -1,0 +1,38 @@
+<mat-toolbar color="primary" class="mat-toolbar mat-primary mat-toolbar-single-row">
+    <span>My Application</span>
+    <span class="spacer"></span>
+    <mat-icon aria-hidden="false" aria-label="Add User" (click)="onAdd()">add</mat-icon>
+</mat-toolbar>
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef> User Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container>
+    <ng-container matColumnDef="website">
+    <th mat-header-cell *matHeaderCellDef> Website </th>
+    <td mat-cell *matCellDef="let element"> {{element.website}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element; let i = index">
+            <button mat-raised-button style="margin-right: 10px;" color="warn" (click)="onDelete(element)">Delete</button>
+            <button mat-raised-button color="accent" (click)="onEdit(element)">Edit</button>
+        </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
